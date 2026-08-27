@@ -25,7 +25,9 @@ public class Practico1 {
 
         //imprimirNumero(1523);
         //System.out.println("Es palíndromo: " + esPalindromo("ABCCDA"));
-        fibonacci(7); //0 1 1 2 3 5 8
+        //fibonacci(7); //0 1 1 2 3 5 8
+        
+        trianguloNFilas(4);
     }
     
     private static void imprimirImpares(){ //O(2*n + 1) = O(n)
@@ -120,6 +122,15 @@ public class Practico1 {
             sum = a + b; //5
             a = b; //3
             b = sum; //5
+        }
+    }
+    
+    public static void trianguloNFilas(int n){ // O(n^2)
+        for (int i = 0; i < n; i++) { // Niveles
+            for (int j = 0; j <= i; j++) { // *
+                System.out.print("*");
+            }
+            System.out.println("");
         }
     }
 }
