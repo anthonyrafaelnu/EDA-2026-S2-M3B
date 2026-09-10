@@ -9,7 +9,8 @@ public class Practico3 {
         
         //System.out.println("Array: " + mostrarv2(array));
         //System.out.println("Promedio: " + promedio(array));
-        System.out.println("Valores impares: " + muestroValoresImpares(array));
+        //System.out.println("Valores impares: " + muestroValoresImpares(array));
+        System.out.println(muestroPosPares(array));
         //System.out.println("Pertenece: " + buscarVecV2(arrayOrdenado, 22));
     }
     
@@ -69,14 +70,98 @@ public class Practico3 {
     }
     
     /*
-        PRE: Recibo un array de enteros, no vacío y desordenado
-        POS: Retorno true si existe el elemento, false en caso contrario
+        PRE: -
+        POS: Retorna un string que muestra los datos en las posiciones pares de array
     */
-    public static boolean buscarVec(int[] v, int elemento){
-        for (int i = 0; i < v.length; i++) {
-            if(v[i] == elemento) return true;
+    public static String muestroPosPares(int v[]){ // O(n)
+        String ret = ""; // O(1)
+        
+        for (int i = 0; i < v.length; i+=2) { // O(n/2)
+            ret += v[i] + " ";
         }
-        return false;
+        
+        return ret; // O(1)
+    }
+    
+    public static String muestroPosParesV2(int v[]){
+        String ret = "";
+        
+        for (int i = 0; i < v.length; i++) {
+            if(i % 2 == 0){
+                ret += v[i] + " ";
+            }
+        }
+        
+        return ret;
+    }
+    
+    /*
+        PRE: Recibo un array desordenado
+        POS: Retorno el elemento más grande de ese array
+    */
+    public static int maxVec(int[] v){
+        int max = v[0];
+        
+        for (int i = 1; i < v.length; i++) {
+            if(v[i] > max){
+                max = v[i];
+            }
+        }
+        
+        return max;
+    }
+    
+    /*
+        PRE: Recibo un array ordenado asc
+        POS: Retorno el elemento más grande de ese array
+    */
+    public static int maxVecV2(int[] v){
+        return v[v.length - 1];
+    }
+    
+    /*
+        PRE: -
+        POS: Retorna true si el array es simétrico, false en caso contrario.
+    */
+    public static boolean esSimetrico(int[] v){
+        for (int i = 0; i < v.length / 2; i++) {
+            if(v[i] != v[v.length - 1 - i]) return false;
+        }
+        return true;
+    }
+    
+    public static boolean esSimetricoV2(int[] v){
+        int inicio = 0;
+        int fin = v.length - 1;
+        
+        while(inicio < fin){
+            if(v[inicio] != v[fin]) return false;
+            
+            inicio++;
+            fin--;
+        }
+        
+        return true;
+    }
+    
+    /*
+    PRE: Recibo un array de enteross y dos posiciones válidas, 
+         donde posDesde <= posHasta.
+    POS: Retorno la posición donde se encuentra el mínimo entre esas
+         dos posiciones, inclusive.
+    */
+    public static int posMinVec(int []v,int posDesde, int posHasta){
+        int min = v[posDesde];
+        int posMin = posDesde;
+        
+        for (int i = posDesde + 1; i <= posHasta; i++) {
+            if(v[i] < min){
+                min = v[i];
+                posMin = i;
+            }
+        }
+        
+        return posMin;
     }
     
     /*
@@ -100,5 +185,16 @@ public class Practico3 {
         }
         
         return false;
+    }
+    
+    public static void ordenarVec(int[] v){ // O(n^2)
+        for (int i = 0; i < v.length; i++) {
+            int posMin = posMinVec(v, i, v.length - 1);
+            
+            // swap
+            int aux = v[i];
+            v[i] = v[posMin];
+            v[posMin] = aux;
+        }
     }
 }
