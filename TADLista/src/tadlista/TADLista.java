@@ -28,7 +28,10 @@ public class TADLista {
         
         lOrdenada.mostrar();
         
-        System.out.println("Está ordenada: " + lOrdenada.estaOrdenada());
+        //System.out.println("Está ordenada: " + lOrdenada.estaOrdenada());
+        
+        Lista invertida = lOrdenada.invertir();
+        invertida.mostrar();
     }
     
 }

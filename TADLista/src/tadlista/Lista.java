@@ -228,4 +228,16 @@ public class Lista<T  extends Comparable> implements ILista<T> {
         
         return true;
     }
+
+    public Lista invertir (){
+        Lista ret = new Lista();
+        
+        Nodo<T> aux = this.inicio;
+        while(aux != null){
+            ret.agregarInicio(aux.getDato());
+            aux = aux.getSiguiente();
+        }
+        
+        return ret;
+    }
 }
