@@ -5,7 +5,7 @@ public interface IPila<T> {
     public void pop();
     
     /*
-        PRE: La lista no es vacía
+        PRE: La pila no es vacía
         POS: Retorna el último elemento insertado
     */
     public T top();
