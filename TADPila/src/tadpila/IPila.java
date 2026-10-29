@@ -16,6 +16,5 @@ public interface IPila<T> {
     
     
     /*No permitido, pero lo dejamos con fines didácticos*/
-    public void mostrarREC();
     public void mostrar();
 }

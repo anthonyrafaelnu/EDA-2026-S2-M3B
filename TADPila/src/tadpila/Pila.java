@@ -70,9 +70,4 @@ public class Pila<T  extends Comparable> implements IPila<T> {
         }
         System.out.println("Fondo");
     }
-
-    @Override
-    public void mostrarREC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
