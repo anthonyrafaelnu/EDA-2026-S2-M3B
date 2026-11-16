@@ -179,7 +179,14 @@ public class Lista<T  extends Comparable> implements ILista<T> {
 
     @Override
     public void mostrarREC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mostrarRECAux(this.inicio);
+    }
+    
+    public void mostrarRECAux(Nodo aux) {
+        if(aux != null){
+            System.out.println(aux.getDato() + " ");
+            mostrarRECAux(aux.getSiguiente());
+        }
     }
     
     @Override
